@@ -8,14 +8,13 @@
   ...
 }: {
   imports = [
-    # ./nvim.nix
+    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   nixpkgs = {
     overlays = [
 
-    ];
-    config = {
+    ]; config = {
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = _: true;
@@ -31,40 +30,29 @@
   	enable = true;
 
 	viAlias = true;
-	vimAlieas = true;
-	vimdiffAlias = true;
+	vimAlias = true;
 
-	extraPackages = with pkgs; {
-		wl-clipboard
-	};
-	
-	
 	options = {
 		relativenumber = true;
 		shiftwidth = 4;
-	}
-
-	keymaps = [
-#	{
-#		mode = "n";
-#		key = "<leader>m";
-#		options.silent = true;
-#		action = "<cmd>!make<CR>";
-#	}
-
-	colorschemes.gruvbox.enable = true
-	
-	plugins = {
-		plugins.fugitive.enable = true;
 	};
 
-	];
+	maps = {
+	    normal = {
+		"<leader>d".action = "\"_d";
+	    };
+	};
+
+	plugins = {
+	    fugitive.enable = true;
+	};
+
   };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
-
+	
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 

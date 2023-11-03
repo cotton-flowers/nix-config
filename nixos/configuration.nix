@@ -64,7 +64,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim 
     tmux
     lf
     wofi
@@ -75,12 +74,8 @@
     dunst
     brightnessctl
     warpd
-    wl-clipboard
 ];
 
-  #nvim default editor
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
 
   #sound
   sound.enable = true;
