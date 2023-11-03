@@ -1,0 +1,2 @@
+./rebuild_nixos.sh
+./apply_home_manager.sh

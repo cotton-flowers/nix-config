@@ -11,6 +11,8 @@
 
     #this is where you add flakes
     hardware.url = "github:nixos/nixos-hardware";
+	hyprland.url = "github:hyprwm/Hyprland";	 
+	nixvim.url   = "github:nix-community/nixvim/nixos-23.05";
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
@@ -42,7 +44,10 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
-        modules = [./home-manager/home.nix];
+        modules = [
+			./home-manager/home.nix
+			{wayland.windowManager.hyprland.enable = true;}
+		];
       };
     };
   };
