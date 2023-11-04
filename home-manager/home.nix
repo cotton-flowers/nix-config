@@ -69,10 +69,27 @@
 		    toggleQuickMenu = "<leader>t";
 		};
 	    };
-	    which-key.enable  = true;
-	    commentary.enable = true;
-	    surround.enable   = true;
-	    lsp.enable        = true;
+	    which-key.enable       = true;
+	    commentary.enable      = true;
+	    surround.enable        = true;
+
+	    lsp.enable             = true;
+	    nvim-treesitter.enable = true
+
+	    neorg =  {
+		enable   = true;
+		modules = {
+		    "core.defaults" = {__empty = null;};
+		    "core.dirman" = {
+			config = {
+			    workspaces = {
+				notes = "~/notes";
+			    };
+			    default_workspace = "notes";
+			};
+		    };
+		}; 
+	    }; 
 	};
 
 	extraPlugins = with pkgs.vimPlugins; [
@@ -80,7 +97,20 @@
 	];
 
 	extraConfigLua = ''
-	    vim.g.mapleader = " ";
+	      require("neorg").setup {
+		load = {
+		  ["core.defaults"] = {},
+		  ["core.concealer"] = {},
+		  ["core.dirman"] = {
+		    config = {
+		      workspaces = {
+			notes = "~/notes",
+		      },
+		      default_workspace = "notes",
+		    },
+		  },
+		},
+	      }
 	    '';
 	extraConfigVim = ''
 	   let g:mapleader = " " 
