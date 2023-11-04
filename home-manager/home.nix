@@ -42,7 +42,6 @@
 	};
 
 	globals = {
-	    mapleader = " ";
 	};
 
 	maps = {
@@ -58,14 +57,13 @@
 	    fugitive.enable   = true;
 	    telescope.enable  = true;
 	    telescope.keymaps = {
-	      "<C-p>"      = {action = "git_files";  desc = "find files in it project"; }; 
-	      "<leader>fg" = {action = "live_grep";  desc = "live grep"; };
-	      "<leader>ff" = {action = "find_files"; desc = "fuzzy find files"; };
-	      "<leader>fb" = {action = "buffers";    desc = "find in buffers"; };
+	      "<C-p>"      = "git_files";  #desc = "find files in it project"; }; 
+	      "<leader>fg" = "live_grep";  #desc = "live grep"; };
+	      "<leader>ff" = "find_files"; #desc = "fuzzy find files"; };
+	      "<leader>fb" = "buffers";    #desc = "find in buffers"; };
 	      };
 	    harpoon =  {
 		enable  = true;
-		enableTelescope = true;
 		keymaps = {
 		    addFile         = "<leader>a";
 		    toggleQuickMenu = "<leader>t";
@@ -81,10 +79,12 @@
 	    lightspeed-nvim
 	];
 
-	extraConfigLua = '''
-	    -- Print a little welcome message when nvim is opened!
-	    print("Hello world!")
+	extraConfigLua = ''
+	    vim.g.mapleader = " ";
 	    '';
+	extraConfigVim = ''
+	   let g:mapleader = " " 
+	'';
     };
 
 # Enable home-manager and git
