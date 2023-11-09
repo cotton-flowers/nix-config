@@ -39,6 +39,8 @@
 	options = {
 	    relativenumber = true;
 	    shiftwidth = 4;
+	    scrolloff = 8;
+	    smartcase = true;
 	};
 
 	globals = {
@@ -46,8 +48,14 @@
 
 	maps = {
 	    normal = {
-		"<leader>d".action = "\"_d";
-		" ".action = "<Nop>";
+		"<leader>d" = "\"_d";
+		" " = "<Nop>";
+		"<c-d>" = "<c-d>zz";
+		"<C-u>" = "c-u>zz";
+	    };
+
+	    insert = {
+		"jk" = "<esc>";
 	    };
 	};
 
@@ -57,24 +65,35 @@
 	    fugitive.enable   = true;
 	    telescope.enable  = true;
 	    telescope.keymaps = {
-	      "<C-p>"      = "git_files";  #desc = "find files in it project"; }; 
-	      "<leader>fg" = "live_grep";  #desc = "live grep"; };
-	      "<leader>ff" = "find_files"; #desc = "fuzzy find files"; };
-	      "<leader>fb" = "buffers";    #desc = "find in buffers"; };
+	      "<leader>fp" = "git_files";  # [f]ind in [p]roject; 
+	      "<leader>fg" = "live_grep";  # [f]ind with [g]rep
+	      "<leader>ff" = "find_files"; # [f]ind [f]iles
+	      "<leader>fb" = "buffers";    # [f]ind [b]uffer
 	      };
+
 	    harpoon =  {
 		enable  = true;
 		keymaps = {
-		    addFile         = "<leader>a";
-		    toggleQuickMenu = "<leader>t";
+		    addFile         = "<leader>ha";
+		    toggleQuickMenu = "<leader>ht";
 		};
-	    };
-	    which-key.enable       = true;
-	    commentary.enable      = true;
-	    surround.enable        = true;
 
-	    lsp.enable             = true;
-	    nvim-treesitter.enable = true
+
+	    };
+
+	    which-key.enable = true;
+	    commentary.enable = true;
+	    surround.enable = true;
+
+	    lsp.enable = true;
+
+	    treesitter.enable = true;
+	    treesitter.folding = true;    
+	    treesitter-context.enable = true;
+
+	    coq-nvim.enable = true;
+	    coq-nvim.autoStart = "shut-up";
+	    coq-nvim.recommendedKeymaps = true;
 
 	    neorg =  {
 		enable   = true;
@@ -88,8 +107,8 @@
 			    default_workspace = "notes";
 			};
 		    };
-		}; 
-	    }; 
+		};
+	    };
 	};
 
 	extraPlugins = with pkgs.vimPlugins; [
@@ -97,20 +116,6 @@
 	];
 
 	extraConfigLua = ''
-	      require("neorg").setup {
-		load = {
-		  ["core.defaults"] = {},
-		  ["core.concealer"] = {},
-		  ["core.dirman"] = {
-		    config = {
-		      workspaces = {
-			notes = "~/notes",
-		      },
-		      default_workspace = "notes",
-		    },
-		  },
-		},
-	      }
 	    '';
 	extraConfigVim = ''
 	   let g:mapleader = " " 

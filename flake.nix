@@ -1,6 +1,4 @@
 {
-  description = "yipeeee home manager";
-
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
@@ -17,9 +15,9 @@
 	inputs.nixpkgs.follows = "nixpkgs";
     };
     
-  # Shameless plug: looking for a way to nixify your themes and make
-    # everything match nicely? Try nix-colors!
-    nix-colors.url = "github:misterio77/nix-colors";
+    #nur.url = "github:nix-communty/NUR";
+
+     nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = {
