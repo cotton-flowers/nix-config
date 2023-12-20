@@ -26,6 +26,9 @@
 	homeDirectory = "/home/cotton";
 
 	packages = with pkgs; [
+	    discord
+	    spotify
+	    zathura
 	    wl-clipboard
 	];
     };

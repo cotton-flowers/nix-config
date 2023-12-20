@@ -25,7 +25,7 @@
     config = {
       allowUnfree = true;
     };
-    overlays = [ nur.overlay ];
+#    overlays = [ nur.overlay ];
   };
 
   nix = {
@@ -45,9 +45,7 @@
     };
   };
 
-  # FIXME: Add the rest of your current configuration
-
-  # TODO: Set your hostname
+  
   networking.hostName = "laptop";
 
   #bootloader
