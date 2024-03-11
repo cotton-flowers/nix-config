@@ -65,6 +65,7 @@
 	colorschemes.gruvbox.enable = true;
 
 	plugins = {
+	    autopairs.enable = true;
 	    fugitive.enable   = true;
 	    telescope.enable  = true;
 	    telescope.keymaps = {
@@ -77,8 +78,8 @@
 	    harpoon =  {
 		enable  = true;
 		keymaps = {
-		    addFile         = "<leader>ha";
-		    toggleQuickMenu = "<leader>ht";
+		    addFile         = "<leader>ha"; # [h]arpoon [a]dd
+		    toggleQuickMenu = "<leader>ht"; # [h]arpoon [t]abs
 		};
 
 
