@@ -37,10 +37,6 @@
 	];
     };
 
-    programs.steam = {
-	enable = true;
-    };
-
     programs.nixvim = {
 	enable = true;
 
@@ -118,11 +114,6 @@
 	extraConfigVim = ''
 	   let g:mapleader = " " 
 	'';
-    };
-
-    programs.steam = {
-	enable = true;
-	gamescopeSession.enable = true;
     };
 
 # Enable home-manager and git
