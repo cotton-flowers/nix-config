@@ -30,7 +30,15 @@
 	    spotify
 	    zathura
 	    wl-clipboard
+	    gcc
+	    ghc
+	    obsidian
+	    syncthing
 	];
+    };
+
+    programs.steam = {
+	enable = true;
     };
 
     programs.nixvim = {
@@ -65,7 +73,7 @@
 	colorschemes.gruvbox.enable = true;
 
 	plugins = {
-	    autopairs.enable = true;
+	    nvim-autopairs.enable = true;
 	    fugitive.enable   = true;
 	    telescope.enable  = true;
 	    telescope.keymaps = {
@@ -99,20 +107,6 @@
 	    coq-nvim.autoStart = "shut-up";
 	    coq-nvim.recommendedKeymaps = true;
 
-	    neorg =  {
-		enable   = true;
-		modules = {
-		    "core.defaults" = {__empty = null;};
-		    "core.dirman" = {
-			config = {
-			    workspaces = {
-				notes = "~/notes";
-			    };
-			    default_workspace = "notes";
-			};
-		    };
-		};
-	    };
 	};
 
 	extraPlugins = with pkgs.vimPlugins; [
@@ -124,6 +118,11 @@
 	extraConfigVim = ''
 	   let g:mapleader = " " 
 	'';
+    };
+
+    programs.steam = {
+	enable = true;
+	gamescopeSession.enable = true;
     };
 
 # Enable home-manager and git

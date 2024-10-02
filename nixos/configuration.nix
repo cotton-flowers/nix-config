@@ -84,6 +84,10 @@
   programs.hyprland.enable = true;
   xdg.portal = { enable = true; extraPortals = [pkgs.xdg-desktop-portal-gtk]; };
 
+  #bluetooth
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on 
+
   # Enable networking
   networking.networkmanager.enable = true;
 
