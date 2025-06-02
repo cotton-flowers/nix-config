@@ -27,6 +27,11 @@
     [ { device = "/dev/disk/by-uuid/83d99e5b-d888-4347-b7fa-09cd25bf5399"; }
     ];
 
+  hardware.opengl = {
+     enable = true;
+     package = (pkgs.mesa.override {galliumDrivers = ["i915"]; }).drivers;
+  };
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
