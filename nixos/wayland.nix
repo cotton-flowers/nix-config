@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
         user = "greeter";
       };
     };
@@ -13,16 +13,17 @@
 
   #allow running things as root from wayland
   security.polkit.enable = true;
-  security.pam.services.swaylock = {};
+  security.pam.services.hyprlock = {};
 
-  #electron stuff
+  #prompt electron to use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   environment.systemPackages = with pkgs; [
     grim
     mako
     slurp
-    sway
     wl-clipboard
+    hyprland
   ];
 
   # Enable the gnome-keyring secrets vault.

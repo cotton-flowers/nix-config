@@ -29,7 +29,7 @@
 
   hardware.opengl = {
      enable = true;
-     package = (pkgs.mesa.override {galliumDrivers = ["i915"]; }).drivers;
+     package = (pkgs.mesa.override {galliumDrivers = ["i915" "swrast"]; }).drivers;
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

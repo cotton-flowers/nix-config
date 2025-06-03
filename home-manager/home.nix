@@ -8,8 +8,10 @@
     ...
 }: {
     imports = [
-	./sway.nix
 	./nixvim.nix
+	./hypr.nix
+	# ./sway.nix
+	#./i3.nix
     ];
 
     nixpkgs = {
