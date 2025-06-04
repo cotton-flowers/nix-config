@@ -1,17 +1,17 @@
 {
-  inputs = {
+  inputs = let version = "25.05"; in {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-${version}";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager/release-${version}";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     #this is where you add flakes
     hardware.url = "github:nixos/nixos-hardware";
 
     nixvim = {
-	url = "github:nix-community/nixvim/nixos-23.05";
+	url = "github:nix-community/nixvim/nixos-${version}";
 	inputs.nixpkgs.follows = "nixpkgs";
     };
   };

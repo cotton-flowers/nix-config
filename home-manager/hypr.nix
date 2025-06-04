@@ -7,11 +7,11 @@
     ];
   };
   
-  programs.hyprlock = {
-    enable = true;
-    # fill out... reference mynixos.com.
-  }
+#  programs.hyprlock = {
+#    enable = true;
+#    # fill out... reference mynixos.com.
+#  };
 
-#  waybar.enable = true;
-#  wofy.enable = true;
+#  programs.waybar.enable = true;
+#  programs.wofi.enable = true;
 }

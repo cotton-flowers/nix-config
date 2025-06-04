@@ -29,12 +29,13 @@
 	homeDirectory = "/home/cotton";
 
 	packages = with pkgs; [
+	    foot
 	    ripgrep
 	    discord
 	    firefox
+	    wl-clipboard
 #	    spotify
 #	    zathura
-	    wl-clipboard
 #	    ghc
 #	    obsidian
 	];

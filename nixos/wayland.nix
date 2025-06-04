@@ -15,6 +15,8 @@
   security.polkit.enable = true;
   security.pam.services.hyprlock = {};
 
+  hardware.opengl.enable = true;
+
   #prompt electron to use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -23,7 +25,6 @@
     mako
     slurp
     wl-clipboard
-    hyprland
   ];
 
   # Enable the gnome-keyring secrets vault.
