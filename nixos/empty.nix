@@ -52,9 +52,9 @@ networking.hostName = "laptop";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    git
-];
+#  environment.systemPackages = with pkgs; [
+#    git
+#  ];
 
   #bluetooth
   hardware.bluetooth.enable = true; # enables support for Bluetooth
