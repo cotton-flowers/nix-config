@@ -44,7 +44,7 @@
 
     # Available through 'home-manager --flake .#cotton@[host]'
     homeConfigurations = {
-      "cotton@majalis" = home-manager.lib.homeManagerConfiguration {
+      "cotton@carpeta" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
         modules = [
@@ -55,12 +55,12 @@
         ];
       };
 
-      "cotton@carnegiea" = home-manager.lib.homeManagerConfiguration {
+      "cotton@saguaro" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
         modules = [
           ./home-manager/home.nix
-          ./home-manager/carnegia.nix
+          ./home-manager/desktop.nix
           ./home-manager/nvim.nix
         ];
       };

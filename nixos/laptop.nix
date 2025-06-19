@@ -12,7 +12,7 @@
     options = "--delete-older-than 3d";
   };
 
-  networking.hostName = "majalis";
+  networking.hostName = "carpeta";
   #bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
