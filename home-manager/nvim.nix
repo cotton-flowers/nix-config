@@ -45,22 +45,33 @@ in {
         "<leader>fb" = "buffers";
         };
 
-        lsp = {enable = true;};
+        lsp = {
+	    enable = true;
+
+	};
         which-key.enable = true;
         commentary.enable = true;
-        surround.enable = true;
+        vim-surround.enable = true;
         treesitter.enable = true;
         treesitter-context.enable = true;
-        coq-nvim.enable = true;
-        coq-nvim.autoStart = "shut-up";
-        coq-nvim.recommendedKeymaps = true;
+
+        coq-nvim = {
+	    enable = true;
+	    settings = {
+		auto_start = "shut-up";
+		keymap.recommended = true;
+	    };
+	};
+
         mini = {
           enable = true;
           mockDevIcons = true;
           modules.icons = {};
         };
+
+	#i love ggandor, later i'll package spooky and enable that too
+	leap.enable = true;
+	flit.enable = true;
       };
-      extraPlugins = with pkgs.vimPlugins; [leap-nvim];
-      extraConfigLua = '''';
     };
   }

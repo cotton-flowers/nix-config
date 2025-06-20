@@ -2,7 +2,6 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs.hostSystem = "x86_64-linux";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     # Home manager
@@ -32,6 +31,8 @@
           ./nixos/wayland.nix
         ];
       };
+
+      empty = nixpkgs.lib.nixosSystem { modules = [ ./nixos/configuration.nix ];};
 
       desktop = nixpkgs.lib.nixosSystem {
         modules = [
