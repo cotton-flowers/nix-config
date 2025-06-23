@@ -47,11 +47,10 @@ in {
 
         lsp = {
 	    enable = true;
-
 	};
-        which-key.enable = true;
+
         commentary.enable = true;
-        vim-surround.enable = true;
+        #vim-surround.enable = true;
         treesitter.enable = true;
         treesitter-context.enable = true;
 
@@ -63,15 +62,15 @@ in {
 	    };
 	};
 
-        mini = {
-          enable = true;
-          mockDevIcons = true;
-          modules.icons = {};
-        };
+#        mini = {
+#          enable = true;
+#          mockDevIcons = true;
+#          modules.icons = {};
+#        };
 
-	#i love ggandor, later i'll package spooky and enable that too
+	# i love ggandor, later i'll package spooky and enable that too
 	leap.enable = true;
-	flit.enable = true;
+	# flit.enable = true;
       };
     };
   }

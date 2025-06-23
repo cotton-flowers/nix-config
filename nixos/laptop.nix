@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./hardware-configuration.nix];
+  imports = [ ./hardware-configuration.nix ];
 
   nix.gc = {
     automatic = true;

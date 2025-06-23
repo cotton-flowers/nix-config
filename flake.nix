@@ -1,6 +1,7 @@
 {
   inputs = {
     # Nixpkgs
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
@@ -21,7 +22,9 @@
     home-manager,
     nixvim,
     ...
-  } @ inputs: {
+  } @ inputs: let 
+	pkgs = nixpkgs.legacyPackages.x86_64-linux;
+	upkgs = inputs.unstable.legacyPackages.x86_64-linux; in {
     nixosConfigurations = {
       # Available through 'nixos-rebuild --flake .#[host]'
       laptop = nixpkgs.lib.nixosSystem {
@@ -32,7 +35,7 @@
         ];
       };
 
-      empty = nixpkgs.lib.nixosSystem { modules = [ ./nixos/configuration.nix ];};
+      empty = nixpkgs.lib.nixosSystem { modules = [ ./nixos/laptop.nix ./nixos/configuration.nix ];};
 
       desktop = nixpkgs.lib.nixosSystem {
         modules = [
@@ -67,6 +70,7 @@
       };
     };
 
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    updateshell = upkgs.mkShell { packages = [ upkgs.nixVersions.latest ]; };
+    formatter.x86_64-linux = pkgs.alejandra;
   };
 }

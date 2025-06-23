@@ -15,7 +15,7 @@
   security.polkit.enable = true;
   security.pam.services.hyprlock = {};
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   #prompt electron to use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
